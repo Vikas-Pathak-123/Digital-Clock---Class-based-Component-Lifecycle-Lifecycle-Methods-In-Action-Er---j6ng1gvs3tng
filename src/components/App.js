@@ -7,18 +7,17 @@ const App = () => {
 
   const today = new Date();
 
-  const todaydate = (today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate());
+  const todaydate = (today.getFullYear() + '/' + (today.getMonth() + 1) + '/' + today.getDate());
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTime(new Date().toLocaleTimeString());
+      setTime(new Date().toLocaleString());
     }, 1000);
     return () => clearInterval(interval);
   });
   return (
     <div id="main">
-      <div className="date-time" toLocaleString>
-      {todaydate},
+      <div className="date-time">
       {Time}
       </div>
     </div>
