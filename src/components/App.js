@@ -1,22 +1,36 @@
+import React, { Component } from "react";
 import "../styles/App.css";
 
-import React from "react";
-import { useState, useEffect } from "react";
-const App = () => {
-  const [time, setTime] = useState(new Date().toLocaleString());
+class App extends Component {
+  constructor(props) {
+    super(props);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTime(new Date().toLocaleString());
-    }, 1000);
-    return () => clearInterval(interval);
-  },[]);
-  // console.log(time);
+    this.state = {
+      time: new Date().toLocaleString(),
+    };
+  }
 
-  return (
-    <div className="mainDiv">
-      <div className="date-time">{time}</div>
-    </div>
-  );
-};
+  componentDidMount() {
+    this.intervalID = setInterval(() => this.tick(), 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.intervalID);
+  }
+
+  tick() {
+    this.setState({
+      time: new Date().toLocaleString(),
+    });
+  }
+
+  render() {
+    return (
+      <div className="mainDiv">
+        <div className="date-time">{this.state.time}</div>
+      </div>
+    );
+  }
+}
+
 export default App;
