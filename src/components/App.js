@@ -12,6 +12,6 @@ const App = () => {
     return () => clearInterval(interval);
   }, []);
 
-  return <div className="date-time">{time}</div>;
+  return <div className="date-time">`{time}`</div>;
 };
 export default App;
