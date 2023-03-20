@@ -1,0 +1,15 @@
+.mainDiv{
+    font-size: 50px;
+    text-align: center;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+   }
+   .date-time{
+    border: solid 50px rgb(0, 111, 128);
+    color: red;
+    border-radius: 5px;
+    padding: 30px;
+   }
+   
